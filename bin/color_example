@@ -1,0 +1,25 @@
+#!/usr/bin/php
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use RXX\Colors\Colors;
+
+// basic usage
+Colors::cprint('%b;various %c;shades %B;of %C;blue');
+Colors::cprint('%Rw;red on white');
+
+// bars in blue and red
+Colors::cprint('%kB;     %x;     %kR;     ');
+
+// returning a string, without newline
+$bright = Colors::cprint('%Y;YELLOW!', false, true, true);
+echo "bright '{$bright}'\n";
+
+// continuing color without reset
+Colors::cprint('w listing in bright green on blue:%Gb;', true, false);
+system('w');
+Colors::cprint('');
+
+Colors::cprint('%wm;all%x; %M;done');
+
